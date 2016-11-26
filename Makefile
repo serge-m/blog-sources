@@ -121,8 +121,7 @@ cf_upload: publish
 
 github: publish
     SITE_COMMIT_MESSAGE=`git log -1 --format=%B` && \
-    git submodule add -f https://github.com/serge-m/serge-m.github.io.git output && \
-	cd output && \
+    cd output && \
 	git add -v --all && \
 	git status --verbose && \
 	git commit -v -m "$$SITE_COMMIT_MESSAGE" && \
