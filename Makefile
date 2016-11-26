@@ -122,9 +122,11 @@ cf_upload: publish
 github: publish
 	SITE_COMMIT_MESSAGE=`git log -1 --format=%B` && \
 	cd output && \
+	echo `pwd` && \
 	git config user.email "sbmatyunin@gmail.com" && \
 	git config user.name "serge-m" && \
 	git add --all . && \
+	git status --verbose && \
 	git commit -m "$$SITE_COMMIT_MESSAGE" && \
 	git push
 
