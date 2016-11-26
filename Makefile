@@ -120,7 +120,7 @@ cf_upload: publish
 	cd $(OUTPUTDIR) && swift -v -A https://auth.api.rackspacecloud.com/v1.0 -U $(CLOUDFILES_USERNAME) -K $(CLOUDFILES_API_KEY) upload -c $(CLOUDFILES_CONTAINER) .
 
 github: publish
-    git submodule add -f git@github.com:serge-m/serge-m.github.io.git output && \
+    git submodule add -f https://github.com/serge-m/serge-m.github.io.git output && \
 	cd output && \
 	git add -v --all && \
 	git status --verbose && \
