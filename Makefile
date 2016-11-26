@@ -124,6 +124,8 @@ github: publish
 	cd output && \
 	git add -v --all && \
 	git status --verbose && \
+	git config user.email "sbmatyunin@gmail.com" && \
+	git config user.name "serge-m" && \
 	git commit -v -m "$$SITE_COMMIT_MESSAGE" && \
 	git push -v
 
