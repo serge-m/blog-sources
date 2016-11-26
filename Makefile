@@ -126,6 +126,7 @@ github: publish
 	git add -v --all && \
 	git status --verbose && \
 	git commit -v -m "$$SITE_COMMIT_MESSAGE" && \
-	git push -v
+	git push -v && \
+	dfsdfdf
 
 .PHONY: html help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
