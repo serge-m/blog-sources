@@ -131,6 +131,7 @@ github: publish
 	find ./content/ && \
 	echo "!!!!!!!output" && \
 	find ./output/ && \
+	echo "$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)" && \
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS) && \
 	echo "!!!!!!!output2" && \
 	find ./output/ && \
