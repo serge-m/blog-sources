@@ -124,17 +124,17 @@ dbg:
 
 github: publish
 	SITE_COMMIT_MESSAGE=`git log -1 --format=%B` && \
+	$$(rm -r output || true) && \
+	git clone git@github.com:serge-m/serge-m.github.io.git output && \
+	$$(ls -d ./output/* | xargs rm -r) && \
+	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS) && \
 	cd output && \
-	git add -v --all && \
-	git status && \
+	git add -v --all . && \
 	git config user.email "sbmatyunin@gmail.com" && \
 	git config user.name "serge-m" && \
 	git commit -v -m "$$SITE_COMMIT_MESSAGE" && \
 	$$(git remote add ggg git@github.com:serge-m/serge-m.github.io.git || true) && \
-	git remote -v && \
-	git fetch ggg master && \
-	git remote -v && \
-	git push -f ggg HEAD:master \
+	git push && \
     echo "done"
 
 

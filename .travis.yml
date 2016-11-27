@@ -12,8 +12,6 @@ script:
               "Host github.com" \
               "  IdentityFile $SSH_FILE" \
               "  LogLevel ERROR" >> ~/.ssh/config
-- make dbg
-- make publish
 - make github
 
 env:
