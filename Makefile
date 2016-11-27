@@ -131,6 +131,7 @@ github: publish
 	git config user.name "serge-m" && \
 	git commit -v -m "$$SITE_COMMIT_MESSAGE" && \
 	$$(git remote add ggg git@github.com:serge-m/serge-m.github.io.git || true) && \
-	git push -v ggg master
+	git remove -v && \
+	git push -v ggg master && git push ggg master
 
 .PHONY: html help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
