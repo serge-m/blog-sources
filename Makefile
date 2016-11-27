@@ -128,12 +128,12 @@ github: publish
 	git clone git@github.com:serge-m/serge-m.github.io.git ./output && \
 	$$(ls -d ./output/* | xargs rm -r) && \
 	echo "!!!!!!!content" && \
-	find . ./content && \
+	find ./content/* && \
 	echo "!!!!!!!output" && \
-	find . ./output && \
+	find ./output/* && \
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS) && \
 	echo "!!!!!!!output2" && \
-	find . ./output && \
+	find ./output/* && \
 	cd ./output && \
 	git add -v --all . && \
 	git config user.email "sbmatyunin@gmail.com" && \
