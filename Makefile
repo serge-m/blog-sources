@@ -124,12 +124,13 @@ dbg:
 
 github: publish
 	SITE_COMMIT_MESSAGE=`git log -1 --format=%B` && \
-	$$(rm -r output || true) && \
+	$$(rm -rf ./output || true) && \
 	git clone git@github.com:serge-m/serge-m.github.io.git output && \
 	$$(ls -d ./output/* | xargs rm -r) && \
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS) && \
 	cd output && \
 	git add -v --all . && \
+	git status -v && \
 	git config user.email "sbmatyunin@gmail.com" && \
 	git config user.name "serge-m" && \
 	git commit -v -m "$$SITE_COMMIT_MESSAGE" && \
