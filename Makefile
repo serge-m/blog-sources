@@ -123,23 +123,11 @@ dbg:
 	find .
 
 github: publish
-	pwd && \
 	SITE_COMMIT_MESSAGE=`git log -1 --format=%B` && \
 	$$(rm -rf $(OUTPUTDIR) || true) && \
 	git clone git@github.com:serge-m/serge-m.github.io.git $(OUTPUTDIR) && \
 	$$(ls -d $(OUTPUTDIR)/* | xargs rm -r) && \
-	echo "!!!!!!!BASEDIR" && \
-	find $(BASEDIR) && \
-	echo "!!!!!!!content" && \
-	find $(INPUTDIR) && \
-	echo "!!!!!!!output" && \
-	find $(OUTPUTDIR) && \
-	cd $(BASEDIR) && \
-	pwd && \
-	echo "$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)" && \
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS) && \
-	echo "!!!!!!!output2" && \
-	find $(OUTPUTDIR) && \
 	cd $(OUTPUTDIR) && \
 	git add -v --all . && \
 	git config user.email "sbmatyunin@gmail.com" && \
