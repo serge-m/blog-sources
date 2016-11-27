@@ -8,5 +8,6 @@ script:
 - $(npm bin)/set-up-ssh --key "$encrypted_d5bd62f799ff_key" --iv "$encrypted_d5bd62f799ff_iv" --path-encrypted-key ".travis/blog_deploy_key.enc"
 - make publish
 - make github
+- make dbg
 env:
   global:
