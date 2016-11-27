@@ -5,7 +5,7 @@ branches:
 install:
 - pip install pelican
 script:
-- $(npm bin)/set-up-ssh --key "$encrypted_XXXXXXXXXXXX_key" --iv "$encrypted_XXXXXXXXXXXX_iv" --path-encrypted-key ".travis/github_deploy_key.enc"
+- $(npm bin)/set-up-ssh --key "$encrypted_d5bd62f799ff_key" --iv "$encrypted_d5bd62f799ff_iv" --path-encrypted-key ".travis/blog_deploy_key.enc"
 - make publish
 - make github
 env:
