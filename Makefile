@@ -127,8 +127,10 @@ github: publish
 	$$(rm -rf $(OUTPUTDIR) || true) && \
 	git clone git@github.com:serge-m/serge-m.github.io.git $(OUTPUTDIR) && \
 	$$(ls -d $(OUTPUTDIR)/* | xargs rm -r) && \
+	echo "!!!!!!!BASEDIR" && \
+	find $(BASEDIR) && \
 	echo "!!!!!!!content" && \
-	find ./content/ && \
+	find $(INPUTDIR) && \
 	echo "!!!!!!!output" && \
 	find $(OUTPUTDIR) && \
 	echo "$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)" && \
