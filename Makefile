@@ -131,6 +131,7 @@ github: publish
 	git config user.name "serge-m" && \
 	git commit -v -m "$$SITE_COMMIT_MESSAGE" && \
 	$$(git remote add ggg git@github.com:serge-m/serge-m.github.io.git || true) && \
+	git fetch ggg & \
 	git remote -v && \
 	git push -v ggg master && git push ggg master
 	git log origin/master --oneline
