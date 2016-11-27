@@ -132,7 +132,9 @@ github: publish
 	git commit -v -m "$$SITE_COMMIT_MESSAGE" && \
 	$$(git remote add ggg git@github.com:serge-m/serge-m.github.io.git || true) && \
 	git remote -v && \
-	git fetch ggg master
+	git fetch ggg master && \
+	git remote -v && \
+    ls
 
 
 .PHONY: html help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
