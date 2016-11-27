@@ -131,11 +131,8 @@ github: publish
 	git config user.name "serge-m" && \
 	git commit -v -m "$$SITE_COMMIT_MESSAGE" && \
 	$$(git remote add ggg git@github.com:serge-m/serge-m.github.io.git || true) && \
-	git fetch ggg & \
 	git remote -v && \
-	git push -v ggg master && git push ggg master
-	git log origin/master --oneline
-	git log ggg/master --oneline
-	git log --oneline
+	git status
+
 
 .PHONY: html help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
