@@ -123,6 +123,7 @@ dbg:
 	find .
 
 github: publish
+	pwd && \
 	SITE_COMMIT_MESSAGE=`git log -1 --format=%B` && \
 	$$(rm -rf $(OUTPUTDIR) || true) && \
 	git clone git@github.com:serge-m/serge-m.github.io.git $(OUTPUTDIR) && \
@@ -133,6 +134,8 @@ github: publish
 	find $(INPUTDIR) && \
 	echo "!!!!!!!output" && \
 	find $(OUTPUTDIR) && \
+	cd $(BASEDIR) && \
+	pwd && \
 	echo "$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)" && \
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS) && \
 	echo "!!!!!!!output2" && \
