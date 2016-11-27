@@ -133,7 +133,6 @@ github: publish
 	git config user.email "sbmatyunin@gmail.com" && \
 	git config user.name "serge-m" && \
 	git commit -v -m "$$SITE_COMMIT_MESSAGE" && \
-	$$(git remote add ggg git@github.com:serge-m/serge-m.github.io.git || true) && \
 	git push && \
     echo "done"
 
