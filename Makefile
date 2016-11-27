@@ -134,7 +134,8 @@ github: publish
 	git remote -v && \
 	git fetch ggg master && \
 	git remote -v && \
-    ls
+	git push -f ggg HEAD:master \
+    echo "done"
 
 
 .PHONY: html help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
