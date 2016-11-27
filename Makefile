@@ -127,10 +127,15 @@ github: publish
 	$$(rm -rf ./output || true) && \
 	git clone git@github.com:serge-m/serge-m.github.io.git output && \
 	$$(ls -d ./output/* | xargs rm -r) && \
+	echo "!!!!!!!content" && \
+	find . content && \
+	echo "!!!!!!!output" && \
+	find . output && \
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS) && \
+	echo "!!!!!!!output2" && \
+	find . output && \
 	cd output && \
 	git add -v --all . && \
-	git status -v && \
 	git config user.email "sbmatyunin@gmail.com" && \
 	git config user.name "serge-m" && \
 	git commit -v -m "$$SITE_COMMIT_MESSAGE" && \
