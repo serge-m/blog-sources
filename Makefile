@@ -2,7 +2,7 @@ PY?=python3
 PELICAN?=pelican
 PELICANOPTS=
 
-BASEDIR=.
+BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
@@ -124,18 +124,18 @@ dbg:
 
 github: publish
 	SITE_COMMIT_MESSAGE=`git log -1 --format=%B` && \
-	$$(rm -rf ./output || true) && \
-	git clone git@github.com:serge-m/serge-m.github.io.git ./output && \
-	$$(ls -d ./output/* | xargs rm -r) && \
+	$$(rm -rf $(OUTPUTDIR) || true) && \
+	git clone git@github.com:serge-m/serge-m.github.io.git $(OUTPUTDIR) && \
+	$$(ls -d $(OUTPUTDIR)/* | xargs rm -r) && \
 	echo "!!!!!!!content" && \
 	find ./content/ && \
 	echo "!!!!!!!output" && \
-	find ./output/ && \
+	find $(OUTPUTDIR) && \
 	echo "$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)" && \
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS) && \
 	echo "!!!!!!!output2" && \
-	find ./output/ && \
-	cd ./output && \
+	find $(OUTPUTDIR) && \
+	cd $(OUTPUTDIR) && \
 	git add -v --all . && \
 	git config user.email "sbmatyunin@gmail.com" && \
 	git config user.name "serge-m" && \
